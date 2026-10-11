@@ -24,6 +24,7 @@ export default function AuthButton() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       // TODO 1: Firebase가 전달한 currentUser를 authStore에 반영합니다.
+      setUser(currentUser);
     });
     return unsubscribe;
   }, [setUser]);
