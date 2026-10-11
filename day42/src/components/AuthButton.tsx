@@ -47,6 +47,7 @@ export default function AuthButton() {
           return document.data() as Favorite;
         });
         // TODO 2: 조회한 favoriteList로 favoritesStore의 찜 목록을 교체합니다.
+        setFavorites(() => favoriteList);
       } catch (error) {
         console.error(error);
       }
