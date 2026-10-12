@@ -48,7 +48,7 @@ export default function AuthButton() {
             userId: data.userId,
             movieId: data.movieId,
             // TODO 3: 조회한 메모를 사용하고, 없으면 빈 문자열을 넣으세요.
-            memo: "",
+            memo: data.memo ?? "",
           };
         });
         setFavorites(() => favoriteList);
