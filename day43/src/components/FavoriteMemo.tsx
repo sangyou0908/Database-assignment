@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 // TODO 1: updateDoc을 추가로 가져오세요.
-import { doc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useFavoritesStore } from "@/stores/favoritesStore";
 import type { Favorite } from "@/types/favorite";
@@ -31,7 +31,7 @@ export default function FavoriteMemo({ favorite }: FavoriteMemoProps) {
       // 2. DB 저장에 성공한 뒤에만 다음 코드를 실행합니다.
       // TODO 2: 아래 임시 오류를 지우고, 제공된 favoriteRef에 memo를 저장하세요.
       // await로 저장 완료를 기다립니다. 아래 Store 갱신 코드는 제공합니다.
-      throw new Error("TODO: 메모 저장 코드를 완성해 주세요.");
+      await updateDoc(favoriteRef, { memo: memo });
 
       // 3. 현재 Store에서 같은 사용자·영화의 메모만 바꿉니다.
       setFavorites((prev) =>
