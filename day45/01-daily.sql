@@ -1,6 +1,8 @@
 -- Day45 데일리 과제
 
 -- TODO 1. id 30 / user-b / 영화 109 찜을 추가합니다. INSERT의 열 목록에서 memo는 생략합니다.
+INSERT INTO favorites (id, userId, movieId)
+VALUES (30, 'user-b', 109);
 
 -- 추가 확인: memo는 빈 문자열입니다.
 SELECT *
@@ -13,6 +15,9 @@ FROM favorites
 WHERE id = 30;
 
 -- TODO 2. id 30의 memo를 '주말에 다시 보기'로 변경합니다.
+UPDATE favorites
+SET memo = '주말에 다시 보기'
+WHERE id = 30;
 
 -- 수정 후 확인: 이 결과를 result-update.png로 캡처합니다.
 SELECT *
@@ -25,6 +30,8 @@ FROM favorites
 WHERE id = 30;
 
 -- TODO 3. id 30인 찜 행만 삭제합니다.
+DELETE FROM favorites
+WHERE id = 30;
 
 -- 삭제 후 확인: 결과가 0행이어야 합니다.
 SELECT userId, movieId
