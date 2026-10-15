@@ -3,8 +3,8 @@ CREATE TABLE favorites (
   userId TEXT NOT NULL,
   movieId INTEGER NOT NULL,
   memo TEXT NOT NULL DEFAULT '',
-  -- TODO 1: userId와 movieId 조합의 중복을 막는 제약조건을 작성합니다. 끝에 쉼표를 붙입니다.
-  -- TODO 2: movieId가 movies.id를 참조하도록 외래 키를 작성합니다.
+  UNIQUE(userId, movieId)
+  FOREIGN KEY (movieId) REFERENCES movies(id)
 );
 
 INSERT INTO favorites (id, userId, movieId, memo)
